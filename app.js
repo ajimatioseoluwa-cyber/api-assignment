@@ -113,6 +113,7 @@ const addFav = (foodId) => {
 const viewfav = () => {
     const favFoods = allFoods.filter(food => isFav(food.id));
     renderFoodCards(favFoods.length > 0 ? favFoods : allFoods);
+    homeBtn.style.display = 'block'
     if (favFoods.length === 0) {
         document.getElementById('foodContainer').innerHTML = `
             <div class="col-12 text-center py-5">
@@ -122,7 +123,11 @@ const viewfav = () => {
 }
 
 
-
+const home = () => {
+    const homeBtn = document.getElementById('homeBtn')
+    window.location.href = "index.html";
+    homeBtn.style.display = 'none'
+}
 // --- RENDER ---
 
 const renderFoodCards = (dataToDisplay) => {
